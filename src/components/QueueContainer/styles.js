@@ -6,6 +6,7 @@ import {Dimensions} from 'react-native';
 var {height} = Dimensions.get('window');
 
 export const Container = styled.View`
+  flex-direction: column;
   background: #2d4189;
   padding: ${getStatusBarHeight()}px 30px 0px 30px;
   height: ${(height * 88) / 100};
@@ -61,3 +62,13 @@ export const RestaurantIcon = styled(Icon).attrs({
   size: 32,
   color: '#fff',
 })``;
+
+export const DashBar = styled.View`
+  width: 40px;
+  border-width: 3px;
+  border-color: gray;
+  border-radius: 5px;
+  position: absolute;
+  bottom: 8;
+  align-self: center;
+`;

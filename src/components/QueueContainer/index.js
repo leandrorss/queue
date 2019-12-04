@@ -9,6 +9,7 @@ import {
   RestaurantContainer,
   SpotText,
   RestaurantName,
+  DashBar,
 } from './styles';
 
 const QueueContainer = () => {
@@ -24,6 +25,7 @@ const QueueContainer = () => {
         <SpotText>Your spot at</SpotText>
         <RestaurantName>El Taco</RestaurantName>
       </RestaurantContainer>
+      <DashBar />
     </Container>
   );
 };
