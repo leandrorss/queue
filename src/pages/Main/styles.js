@@ -22,8 +22,8 @@ export const CancelWaitButton = styled.TouchableOpacity`
 `;
 
 export const CancelWaitButtonText = styled.Text`
-  font-family: 'Roboto Slab';
-  font-weight: bold;
+  font-family: 'Ubuntu';
+  font-weight: 700;
   font-size: 17px;
   letter-spacing: 1px;
   color: #f45249;

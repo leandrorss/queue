@@ -44,6 +44,10 @@
 		0FFC585E6EDB4D57807B345F /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A0504426ED0473E975A757D /* Octicons.ttf */; };
 		166D2CE2A0A648CB8A08FFA1 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6571F5F034704A3D99295C28 /* SimpleLineIcons.ttf */; };
 		748ECB804D9A44558450359E /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4A8C78DEF3B4E6695E48A30 /* Zocial.ttf */; };
+		9CD6C911CF34428898F9200C /* Ubuntu-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F60BB777CB134265BE03F349 /* Ubuntu-Bold.ttf */; };
+		3886CA6CE7704236A8D97843 /* Ubuntu-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4CCFF4EB58F74014ABAF726F /* Ubuntu-BoldItalic.ttf */; };
+		EC9D05EC55DC4C5789A25D61 /* Ubuntu-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7D2EE5D288A044389F8CF8DD /* Ubuntu-Medium.ttf */; };
+		8A133DE5FBAF45D888C42C4B /* Ubuntu-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 5789D94EE5FD4EF0ABEFCB02 /* Ubuntu-Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -116,6 +120,10 @@
 		0A0504426ED0473E975A757D /* Octicons.ttf */ = {isa = PBXFileReference; name = "Octicons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		6571F5F034704A3D99295C28 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; name = "SimpleLineIcons.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		E4A8C78DEF3B4E6695E48A30 /* Zocial.ttf */ = {isa = PBXFileReference; name = "Zocial.ttf"; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F60BB777CB134265BE03F349 /* Ubuntu-Bold.ttf */ = {isa = PBXFileReference; name = "Ubuntu-Bold.ttf"; path = "../assets/fonts/Ubuntu-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		4CCFF4EB58F74014ABAF726F /* Ubuntu-BoldItalic.ttf */ = {isa = PBXFileReference; name = "Ubuntu-BoldItalic.ttf"; path = "../assets/fonts/Ubuntu-BoldItalic.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		7D2EE5D288A044389F8CF8DD /* Ubuntu-Medium.ttf */ = {isa = PBXFileReference; name = "Ubuntu-Medium.ttf"; path = "../assets/fonts/Ubuntu-Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		5789D94EE5FD4EF0ABEFCB02 /* Ubuntu-Regular.ttf */ = {isa = PBXFileReference; name = "Ubuntu-Regular.ttf"; path = "../assets/fonts/Ubuntu-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,6 +284,10 @@
 				0A0504426ED0473E975A757D /* Octicons.ttf */,
 				6571F5F034704A3D99295C28 /* SimpleLineIcons.ttf */,
 				E4A8C78DEF3B4E6695E48A30 /* Zocial.ttf */,
+				F60BB777CB134265BE03F349 /* Ubuntu-Bold.ttf */,
+				4CCFF4EB58F74014ABAF726F /* Ubuntu-BoldItalic.ttf */,
+				7D2EE5D288A044389F8CF8DD /* Ubuntu-Medium.ttf */,
+				5789D94EE5FD4EF0ABEFCB02 /* Ubuntu-Regular.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -446,6 +458,10 @@
 				0FFC585E6EDB4D57807B345F /* Octicons.ttf in Resources */,
 				166D2CE2A0A648CB8A08FFA1 /* SimpleLineIcons.ttf in Resources */,
 				748ECB804D9A44558450359E /* Zocial.ttf in Resources */,
+				9CD6C911CF34428898F9200C /* Ubuntu-Bold.ttf in Resources */,
+				3886CA6CE7704236A8D97843 /* Ubuntu-BoldItalic.ttf in Resources */,
+				EC9D05EC55DC4C5789A25D61 /* Ubuntu-Medium.ttf in Resources */,
+				8A133DE5FBAF45D888C42C4B /* Ubuntu-Regular.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
