@@ -2,12 +2,13 @@ import styled from 'styled-components/native';
 import {getStatusBarHeight} from 'react-native-iphone-x-helper';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {Dimensions, Animated} from 'react-native';
+import Colors from '~/constants/Colors';
 
 var {height} = Dimensions.get('window');
 
 export const Container = styled(Animated.View)`
   flex-direction: column;
-  background: #2d4189;
+  background: ${Colors.secondary};
   padding: ${getStatusBarHeight()}px 30px 0px 30px;
   height: ${(height * 88) / 100};
   border-bottom-right-radius: 45px;
@@ -29,14 +30,14 @@ export const AppName = styled.Text`
 
 export const RedText = styled.Text`
   font-size: 32px;
-  color: #f45249;
+  color: ${Colors.primary};
   font-family: 'Roboto Slab';
 `;
 
 export const ConfigurationButton = styled(Icon).attrs({
   name: 'more-vert',
   size: 32,
-  color: '#fff',
+  color: Colors.white,
 })`
   padding-top: 12px;
 `;
@@ -60,7 +61,7 @@ export const RestaurantName = styled.Text`
 export const RestaurantIcon = styled(Icon).attrs({
   name: 'restaurant',
   size: 32,
-  color: '#fff',
+  color: Colors.white,
 })``;
 
 export const DashBar = styled.View`

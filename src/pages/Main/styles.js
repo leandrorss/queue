@@ -1,4 +1,5 @@
 import styled from 'styled-components/native';
+import Colors from '~/constants/Colors';
 
 export const Container = styled.View`
   flex: 1;
@@ -12,7 +13,7 @@ export const BottomContainer = styled.View`
 `;
 
 export const CancelWaitButton = styled.TouchableOpacity`
-  background-color: #ffc993;
+  background-color: ${Colors.third};
   border-radius: 16px;
   width: 200px;
   height: 60px;
@@ -26,11 +27,11 @@ export const CancelWaitButtonText = styled.Text`
   font-weight: 700;
   font-size: 17px;
   letter-spacing: 1px;
-  color: #f45249;
+  color: ${Colors.primary};
 `;
 
 export const CallButton = styled.TouchableOpacity`
-  background-color: rgba(255, 201, 147, 0.6);
+  background-color: ${Colors.thirdLight};
   border-radius: 16px;
   padding: 10px;
   width: 90px;
