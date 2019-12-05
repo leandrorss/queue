@@ -1,11 +1,11 @@
 import styled from 'styled-components/native';
 import {getStatusBarHeight} from 'react-native-iphone-x-helper';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import {Dimensions} from 'react-native';
+import {Dimensions, Animated} from 'react-native';
 
 var {height} = Dimensions.get('window');
 
-export const Container = styled.View`
+export const Container = styled(Animated.View)`
   flex-direction: column;
   background: #2d4189;
   padding: ${getStatusBarHeight()}px 30px 0px 30px;
