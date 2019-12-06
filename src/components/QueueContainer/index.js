@@ -1,6 +1,7 @@
 import React from 'react';
 import {Animated} from 'react-native';
 import {PanGestureHandler, State} from 'react-native-gesture-handler';
+import QueueList from '~/components/QueueList';
 
 import {
   Container,
@@ -80,6 +81,7 @@ const QueueContainer = () => {
           <SpotText>Your spot at</SpotText>
           <RestaurantName>El Taco</RestaurantName>
         </RestaurantContainer>
+        <QueueList />
         <DashBar />
       </Container>
     </PanGestureHandler>
