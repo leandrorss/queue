@@ -62,6 +62,7 @@ const QueueContainer = () => {
       onGestureEvent={animatedEvent}
       onHandlerStateChange={onHandlerStateChanged}>
       <Container
+        // eslint-disable-next-line react-native/no-inline-styles
         style={{
           overflow: 'hidden',
           transform: [

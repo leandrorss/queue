@@ -16,14 +16,13 @@ export const QueueItem = styled.View`
 export const QueueNumberContainer = styled.View`
   width: 20px;
   height: 20px;
-  background-color: ${Colors.primary};
   align-items: center;
   justify-content: center;
   border-top-left-radius: 5px;
   border-bottom-left-radius: 5px;
 `;
 export const QueueNumber = styled.Text`
-  color: ${Colors.white};
+  color: ${Colors.whiteTransparent};
   font-weight: bold;
   font-size: 18px;
 `;
@@ -31,14 +30,14 @@ export const QueueIconContainer = styled.View`
   height: 55px;
   width: 50px;
   border-radius: 10px;
-  background-color: ${Colors.white};
+  background-color: 'rgba(255, 255, 255, 0.100)';
   align-items: center;
   justify-content: center;
 `;
 export const QueueIcon = styled(Icon).attrs({
   name: 'person',
   size: 32,
-  color: Colors.primary,
+  color: Colors.secondary,
 })``;
 
 export const RestaurantIcon = styled(Icon).attrs({
