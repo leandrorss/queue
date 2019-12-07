@@ -4,5 +4,6 @@ export default {
   third: '#ffca93',
   thirdLight: 'rgba(255, 201, 147, 0.6)',
   white: '#fff',
-  whiteTransparent: 'rgba(255, 255, 255, 0.3)',
+  whiteTransparent03: 'rgba(255, 255, 255, 0.3)',
+  whiteTransparent0100: 'rgba(255, 255, 255, 0.100)',
 };

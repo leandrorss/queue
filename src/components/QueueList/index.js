@@ -7,11 +7,25 @@ import {
   QueueNumberContainer,
   QueueNumber,
   QueueIcon,
+  QueueItemSelected,
+  QueueIconContainerSelected,
+  QueueNumberContainerSelected,
+  QueueNumberSelected,
+  QueueIconSelected,
 } from './styles';
 
 const QueueList = () => {
   return (
     <Container>
+      <QueueItemSelected>
+        <QueueNumberContainerSelected>
+          <QueueNumberSelected>1</QueueNumberSelected>
+        </QueueNumberContainerSelected>
+        <QueueIconContainerSelected>
+          <QueueIconSelected />
+        </QueueIconContainerSelected>
+      </QueueItemSelected>
+
       <QueueItem>
         <QueueNumberContainer>
           <QueueNumber>1</QueueNumber>
