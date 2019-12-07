@@ -9,8 +9,9 @@ export const QueueItem = styled.View`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  height: 55px;
+  height: 50px;
   width: 90px;
+  margin-top: 17px;
 `;
 export const QueueNumberContainer = styled.View`
   width: 20px;
@@ -39,3 +40,11 @@ export const QueueIcon = styled(Icon).attrs({
   size: 32,
   color: Colors.primary,
 })``;
+
+export const RestaurantIcon = styled(Icon).attrs({
+  name: 'restaurant',
+  size: 32,
+  color: Colors.white,
+})`
+  align-content: center;
+`;

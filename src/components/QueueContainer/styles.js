@@ -46,6 +46,22 @@ export const RestaurantContainer = styled.View`
   margin-top: 50px;
   flex-direction: column;
 `;
+
+export const RestaurantIcon = styled(Icon).attrs({
+  name: 'restaurant',
+  size: 32,
+  color: Colors.white,
+})`
+  margin-top: 5px;
+`;
+
+export const RestaurantItem = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 20px;
+`;
+
 export const SpotText = styled.Text`
   font-family: 'Roboto Slab';
   color: rgba(255, 255, 254, 0.8);
@@ -57,12 +73,6 @@ export const RestaurantName = styled.Text`
   color: white;
   font-size: 35px;
 `;
-
-export const RestaurantIcon = styled(Icon).attrs({
-  name: 'restaurant',
-  size: 32,
-  color: Colors.white,
-})``;
 
 export const DashBar = styled.View`
   width: 40px;

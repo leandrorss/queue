@@ -13,6 +13,8 @@ import {
   SpotText,
   RestaurantName,
   DashBar,
+  RestaurantIcon,
+  RestaurantItem,
 } from './styles';
 
 const QueueContainer = () => {
@@ -61,6 +63,7 @@ const QueueContainer = () => {
       onHandlerStateChange={onHandlerStateChanged}>
       <Container
         style={{
+          overflow: 'hidden',
           transform: [
             {
               translateY: translateY.interpolate({
@@ -79,7 +82,10 @@ const QueueContainer = () => {
         </Top>
         <RestaurantContainer>
           <SpotText>Your spot at</SpotText>
-          <RestaurantName>El Taco</RestaurantName>
+          <RestaurantItem>
+            <RestaurantName>El Taco</RestaurantName>
+            <RestaurantIcon />
+          </RestaurantItem>
         </RestaurantContainer>
         <QueueList />
         <DashBar />
