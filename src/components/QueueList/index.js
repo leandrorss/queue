@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {TouchableOpacity, Animated} from 'react-native';
+import React, {useState, useEffect, useRef} from 'react';
+import {Animated} from 'react-native';
 
 import {
   Container,
@@ -13,115 +13,88 @@ import {
   QueueNumberContainerSelected,
   QueueNumberSelected,
   QueueIconSelected,
+  List,
 } from './styles';
 
+import {PERSON_QUEUE} from '~/data/dummy-data';
+import PersonQueue from '~/models/person-queue';
+
 const QueueList = () => {
-  let offset = 67;
+  const offset = 67;
   let positionValue = offset;
-  const [measurements, setMeasurements] = useState({
-    x: 0,
-    y: 0,
-    width: 0,
-    height: 0,
-  });
-  const [newYPosition, setNewYPosition] = useState(0);
+
+  const [personQueue, setPersonQueue] = useState(PERSON_QUEUE);
+  const [personSelected, setPersonSelected] = useState(personQueue.find(p => p.selected));
+  const [initialPositionY, setInitialPositionY] = useState(0);
+
   const translateY = new Animated.Value(0);
 
-  const onHandlerUpdatePosition = () => {
-    Animated.timing(translateY, {
-      toValue: -positionValue,
-      duration: 350,
-      useNativeDriver: true,
-    }).start(() => {
-      positionValue += offset;
-    });
-  };
+  const [actualPositionNumber, setActualPositionNumber] = useState(0);
+
+  let lengthToFinishQueue = 1;
+
+  useEffect(() => {
+    const initial = 17 + offset * (personSelected.position - 1);
+    setInitialPositionY(initial);
+  }, [personSelected.position]);
+
+  useEffect(() => {
+    const checkQueue = () => {
+      setTimeout(() => {
+        Animated.timing(translateY, {
+          toValue: -positionValue,
+          duration: 350,
+          useNativeDriver: true,
+        }).start(() => {
+          positionValue += offset;
+          if (lengthToFinishQueue < personSelected.position - 1) {
+            lengthToFinishQueue++;
+
+            checkQueue();
+          }
+        });
+      }, 1000);
+    };
+
+    checkQueue();
+  }, []);
 
   return (
     <Container>
       <QueueItemSelected
-        onLayout={({nativeEvent}) => {
-          setMeasurements(nativeEvent.layout);
-        }}
+        selectedItem={initialPositionY}
         style={{
           transform: [
             {
-              translateY
-            }
-          ]
-        }}
-        >
+              translateY,
+            },
+          ],
+        }}>
         <QueueNumberContainerSelected>
-          <QueueNumberSelected>1</QueueNumberSelected>
+          <QueueNumberSelected>{actualPositionNumber}</QueueNumberSelected>
         </QueueNumberContainerSelected>
         <QueueIconContainerSelected>
           <QueueIconSelected />
         </QueueIconContainerSelected>
       </QueueItemSelected>
-      <TouchableOpacity onPress={onHandlerUpdatePosition}>
-        <QueueItem>
-          <QueueNumberContainer>
-            <QueueNumber>1</QueueNumber>
-          </QueueNumberContainer>
-          <QueueIconContainer>
-            <QueueIcon />
-          </QueueIconContainer>
-        </QueueItem>
-      </TouchableOpacity>
 
-      <QueueItem>
-        <QueueNumberContainer>
-          <QueueNumber>2</QueueNumber>
-        </QueueNumberContainer>
-        <QueueIconContainer>
-          <QueueIcon />
-        </QueueIconContainer>
-      </QueueItem>
-
-      <QueueItem>
-        <QueueNumberContainer>
-          <QueueNumber>3</QueueNumber>
-        </QueueNumberContainer>
-        <QueueIconContainer>
-          <QueueIcon />
-        </QueueIconContainer>
-      </QueueItem>
-
-      <QueueItem>
-        <QueueNumberContainer>
-          <QueueNumber>4</QueueNumber>
-        </QueueNumberContainer>
-        <QueueIconContainer>
-          <QueueIcon />
-        </QueueIconContainer>
-      </QueueItem>
-
-      <QueueItem>
-        <QueueNumberContainer>
-          <QueueNumber>5</QueueNumber>
-        </QueueNumberContainer>
-        <QueueIconContainer>
-          <QueueIcon />
-        </QueueIconContainer>
-      </QueueItem>
-
-      <QueueItem>
-        <QueueNumberContainer>
-          <QueueNumber>6</QueueNumber>
-        </QueueNumberContainer>
-        <QueueIconContainer>
-          <QueueIcon />
-        </QueueIconContainer>
-      </QueueItem>
-
-      <QueueItem>
-        <QueueNumberContainer>
-          <QueueNumber>7</QueueNumber>
-        </QueueNumberContainer>
-        <QueueIconContainer>
-          <QueueIcon />
-        </QueueIconContainer>
-      </QueueItem>
+      <List
+        data={personQueue}
+        keyExtractor={item => String(item.id)}
+        scrollEnabled={false}
+        renderItem={({item}) => {
+          return (
+            <QueueItem>
+              <QueueNumberContainer>
+                <QueueNumber>{item.position}</QueueNumber>
+              </QueueNumberContainer>
+              <QueueIconContainer>
+                <QueueIcon />
+              </QueueIconContainer>
+            </QueueItem>
+          );
+        }}
+      />
     </Container>
   );
 };

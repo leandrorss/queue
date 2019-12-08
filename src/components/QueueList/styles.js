@@ -51,8 +51,7 @@ export const RestaurantIcon = styled(Icon).attrs({
 
 export const QueueItemSelected = styled(Animated.View)`
   position: absolute;
-  top: 218;
-  /* top: 218; */
+  top: ${props => props.selectedItem};
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
@@ -86,4 +85,8 @@ export const QueueIconSelected = styled(Icon).attrs({
   name: 'person',
   size: 32,
   color: Colors.primary,
+})``;
+
+export const List = styled.FlatList.attrs({
+  showVerticalScrollIndicator: false,
 })``;
