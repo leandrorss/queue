@@ -1,4 +1,5 @@
-import React from 'react';
+import React, {useState} from 'react';
+import {TouchableOpacity, Animated} from 'react-native';
 
 import {
   Container,
@@ -15,9 +16,41 @@ import {
 } from './styles';
 
 const QueueList = () => {
+  let offset = 67;
+  let positionValue = offset;
+  const [measurements, setMeasurements] = useState({
+    x: 0,
+    y: 0,
+    width: 0,
+    height: 0,
+  });
+  const [newYPosition, setNewYPosition] = useState(0);
+  const translateY = new Animated.Value(0);
+
+  const onHandlerUpdatePosition = () => {
+    Animated.timing(translateY, {
+      toValue: -positionValue,
+      duration: 350,
+      useNativeDriver: true,
+    }).start(() => {
+      positionValue += offset;
+    });
+  };
+
   return (
     <Container>
-      <QueueItemSelected>
+      <QueueItemSelected
+        onLayout={({nativeEvent}) => {
+          setMeasurements(nativeEvent.layout);
+        }}
+        style={{
+          transform: [
+            {
+              translateY
+            }
+          ]
+        }}
+        >
         <QueueNumberContainerSelected>
           <QueueNumberSelected>1</QueueNumberSelected>
         </QueueNumberContainerSelected>
@@ -25,15 +58,16 @@ const QueueList = () => {
           <QueueIconSelected />
         </QueueIconContainerSelected>
       </QueueItemSelected>
-
-      <QueueItem>
-        <QueueNumberContainer>
-          <QueueNumber>1</QueueNumber>
-        </QueueNumberContainer>
-        <QueueIconContainer>
-          <QueueIcon />
-        </QueueIconContainer>
-      </QueueItem>
+      <TouchableOpacity onPress={onHandlerUpdatePosition}>
+        <QueueItem>
+          <QueueNumberContainer>
+            <QueueNumber>1</QueueNumber>
+          </QueueNumberContainer>
+          <QueueIconContainer>
+            <QueueIcon />
+          </QueueIconContainer>
+        </QueueItem>
+      </TouchableOpacity>
 
       <QueueItem>
         <QueueNumberContainer>

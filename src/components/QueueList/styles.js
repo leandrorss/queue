@@ -1,6 +1,7 @@
 import styled from 'styled-components/native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Colors from '~/constants/Colors';
+import {Animated} from 'react-native';
 
 export const Container = styled.View`
   align-items: flex-end;
@@ -48,15 +49,16 @@ export const RestaurantIcon = styled(Icon).attrs({
   align-content: center;
 `;
 
-export const QueueItemSelected = styled.View`
+export const QueueItemSelected = styled(Animated.View)`
   position: absolute;
-  top: 151;
+  top: 218;
   /* top: 218; */
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   height: 50px;
   width: 90px;
+  z-index: 1;
 `;
 export const QueueNumberContainerSelected = styled.View`
   width: 20px;
