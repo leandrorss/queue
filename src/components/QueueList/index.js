@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useState, useEffect, useCallback} from 'react';
 import {Animated} from 'react-native';
 
 import {
@@ -17,11 +17,11 @@ import {
 } from './styles';
 
 import {PERSON_QUEUE} from '~/data/dummy-data';
-import PersonQueue from '~/models/person-queue';
 
 const QueueList = () => {
   const offset = 67;
   let positionValue = offset;
+  let positions = 0;
 
   const [personQueue, setPersonQueue] = useState(PERSON_QUEUE);
   const [personSelected, setPersonSelected] = useState(
@@ -38,18 +38,25 @@ const QueueList = () => {
     setInitialPositionY(initial);
   }, [personSelected.position]);
 
-  useEffect(() => {
-
-    Animated.timing(translateY, {
-      toValue: -positionValue,
-      duration: 350,
-      useNativeDriver: true,
-    }).start(() => {
-      positionValue += offset;
-
-    });
-
+  const checkQueue = useCallback(() => {
+    if (personSelected.position !== 1) {
+      Animated.timing(translateY, {
+        toValue: -positionValue,
+        duration: 350,
+        useNativeDriver: true,
+      }).start(() => {
+        positionValue += offset;
+        personSelected.position--;
+        setActualPositionNumber(personSelected);
+      });
+    }
   }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      checkQueue();
+    }, 2000);
+  }, [checkQueue]);
 
   return (
     <Container>
@@ -75,10 +82,13 @@ const QueueList = () => {
         keyExtractor={item => String(item.id)}
         scrollEnabled={false}
         renderItem={({item}) => {
+
+          positions++;
+
           return (
             <QueueItem>
               <QueueNumberContainer>
-                <QueueNumber>{item.position}</QueueNumber>
+                <QueueNumber>{positions}</QueueNumber>
               </QueueNumberContainer>
               <QueueIconContainer>
                 <QueueIcon />
