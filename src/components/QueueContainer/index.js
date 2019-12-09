@@ -15,7 +15,10 @@ import {
   DashBar,
   RestaurantIcon,
   RestaurantItem,
+  ContentQueue,
 } from './styles';
+
+import BookingInformation from '~/components/BookingInformation';
 
 const QueueContainer = () => {
   let offset = 0;
@@ -88,7 +91,10 @@ const QueueContainer = () => {
             <RestaurantIcon />
           </RestaurantItem>
         </RestaurantContainer>
-        <QueueList />
+        <ContentQueue>
+          <BookingInformation />
+          <QueueList />
+        </ContentQueue>
         <DashBar />
       </Container>
     </PanGestureHandler>

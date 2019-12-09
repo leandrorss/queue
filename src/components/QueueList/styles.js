@@ -5,6 +5,7 @@ import {Animated} from 'react-native';
 
 export const Container = styled.View`
   align-items: flex-end;
+  width: 200px;
 `;
 export const QueueItem = styled.View`
   flex-direction: row;

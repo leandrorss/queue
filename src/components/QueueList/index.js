@@ -24,14 +24,14 @@ const QueueList = () => {
   let positionValue = offset;
 
   const [personQueue, setPersonQueue] = useState(PERSON_QUEUE);
-  const [personSelected, setPersonSelected] = useState(personQueue.find(p => p.selected));
+  const [personSelected, setPersonSelected] = useState(
+    personQueue.find(p => p.selected),
+  );
   const [initialPositionY, setInitialPositionY] = useState(0);
 
   const translateY = new Animated.Value(0);
 
-  const [actualPositionNumber, setActualPositionNumber] = useState(0);
-
-  let lengthToFinishQueue = 1;
+  const [actualPositionNumber, setActualPositionNumber] = useState(5);
 
   useEffect(() => {
     const initial = 17 + offset * (personSelected.position - 1);
@@ -39,24 +39,16 @@ const QueueList = () => {
   }, [personSelected.position]);
 
   useEffect(() => {
-    const checkQueue = () => {
-      setTimeout(() => {
-        Animated.timing(translateY, {
-          toValue: -positionValue,
-          duration: 350,
-          useNativeDriver: true,
-        }).start(() => {
-          positionValue += offset;
-          if (lengthToFinishQueue < personSelected.position - 1) {
-            lengthToFinishQueue++;
 
-            checkQueue();
-          }
-        });
-      }, 1000);
-    };
+    Animated.timing(translateY, {
+      toValue: -positionValue,
+      duration: 350,
+      useNativeDriver: true,
+    }).start(() => {
+      positionValue += offset;
 
-    checkQueue();
+    });
+
   }, []);
 
   return (

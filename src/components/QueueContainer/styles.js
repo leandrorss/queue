@@ -83,3 +83,8 @@ export const DashBar = styled.View`
   bottom: 8;
   align-self: center;
 `;
+
+export const ContentQueue = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+`;
