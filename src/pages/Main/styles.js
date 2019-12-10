@@ -1,15 +1,33 @@
 import styled from 'styled-components/native';
 import Colors from '~/constants/Colors';
+import {Dimensions} from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+
+var {height, width} = Dimensions.get('window');
 
 export const Container = styled.View`
   flex: 1;
 `;
 
-export const BottomContainer = styled.View`
+export const BackgroundContainer = styled.View`
+  position: absolute;
+  bottom: 0;
+  width: ${width};
+  justify-content: flex-end;
+  border-width: 1px;
+  border-color: black;
+  flex-direction: column;
+  z-index: 1;
+`;
+
+export const ButtonContainer = styled.View`
+  position: absolute;
+  bottom: 0;
   flex-direction: row;
-  align-items: flex-end;
-  margin: 10px 25px 10px 25px;
+  padding: 10px 25px 10px 25px;
   justify-content: space-between;
+  width: ${width};
+  z-index: 4;
 `;
 
 export const CancelWaitButton = styled.TouchableOpacity`
@@ -38,4 +56,27 @@ export const CallButton = styled.TouchableOpacity`
   height: 60px;
   justify-content: center;
   align-items: center;
+`;
+
+export const TimerContainer = styled.View`
+  position: absolute;
+  bottom: 80;
+  width: ${width};
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+`;
+
+export const IconTimer = styled(Icon).attrs({
+  name: 'timer',
+  size: 30,
+  color: Colors.secondary,
+})``;
+
+export const Timer = styled.Text`
+  color: ${Colors.secondary};
+  font-size: 20px;
+  font-family: 'Ubuntu';
+  letter-spacing: 1px;
 `;

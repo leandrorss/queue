@@ -4,10 +4,14 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import {
   Container,
-  BottomContainer,
+  ButtonContainer,
   CancelWaitButton,
   CancelWaitButtonText,
   CallButton,
+  BackgroundContainer,
+  TimerContainer,
+  IconTimer,
+  Timer,
 } from './styles';
 import QueueContainer from '~/components/QueueContainer';
 
@@ -15,15 +19,21 @@ const Main = () => {
   return (
     <Container>
       <QueueContainer />
-      <BottomContainer>
-        <CancelWaitButton onPress={() => {}}>
-          <Icon name="exit-to-app" size={28} color="#F45249" />
-          <CancelWaitButtonText>Cancel Wait</CancelWaitButtonText>
-        </CancelWaitButton>
-        <CallButton onPress={() => {}}>
-          <Icon name="call" size={28} color="#F45249" />
-        </CallButton>
-      </BottomContainer>
+      {/* <BackgroundContainer> */}
+        <TimerContainer>
+          <IconTimer />
+          <Timer>Wait Time</Timer>
+        </TimerContainer>
+        <ButtonContainer>
+          <CancelWaitButton onPress={() => {}}>
+            <Icon name="exit-to-app" size={28} color="#F45249" />
+            <CancelWaitButtonText>Cancel Wait</CancelWaitButtonText>
+          </CancelWaitButton>
+          <CallButton onPress={() => {}}>
+            <Icon name="call" size={28} color="#F45249" />
+          </CallButton>
+        </ButtonContainer>
+      {/* </BackgroundContainer> */}
     </Container>
   );
 };

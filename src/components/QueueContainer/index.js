@@ -16,6 +16,7 @@ import {
   RestaurantIcon,
   RestaurantItem,
   ContentQueue,
+  MainContainer,
 } from './styles';
 
 import BookingInformation from '~/components/BookingInformation';
@@ -61,43 +62,45 @@ const QueueContainer = () => {
   };
 
   return (
-    <PanGestureHandler
-      onGestureEvent={animatedEvent}
-      onHandlerStateChange={onHandlerStateChanged}>
-      <Container
-        // eslint-disable-next-line react-native/no-inline-styles
-        style={{
-          overflow: 'hidden',
-          transform: [
-            {
-              translateY: translateY.interpolate({
-                inputRange: [-320, 0, 1],
-                outputRange: [-320, 0, 0],
-                extrapolate: 'clamp',
-              }),
-            },
-          ],
-        }}>
-        <Top>
-          <AppName>
-            que<RedText>u</RedText>e
-          </AppName>
-          <ConfigurationButton />
-        </Top>
-        <RestaurantContainer>
-          <SpotText>Your spot at</SpotText>
-          <RestaurantItem>
-            <RestaurantName>El Taco</RestaurantName>
-            <RestaurantIcon />
-          </RestaurantItem>
-        </RestaurantContainer>
-        <ContentQueue>
-          <BookingInformation />
-          <QueueList />
-        </ContentQueue>
-        <DashBar />
-      </Container>
-    </PanGestureHandler>
+    <MainContainer>
+      <PanGestureHandler
+        onGestureEvent={animatedEvent}
+        onHandlerStateChange={onHandlerStateChanged}>
+        <Container
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={{
+            overflow: 'hidden',
+            transform: [
+              {
+                translateY: translateY.interpolate({
+                  inputRange: [-320, 0, 1],
+                  outputRange: [-320, 0, 0],
+                  extrapolate: 'clamp',
+                }),
+              },
+            ],
+          }}>
+          <Top>
+            <AppName>
+              que<RedText>u</RedText>e
+            </AppName>
+            <ConfigurationButton />
+          </Top>
+          <RestaurantContainer>
+            <SpotText>Your spot at</SpotText>
+            <RestaurantItem>
+              <RestaurantName>El Taco</RestaurantName>
+              <RestaurantIcon />
+            </RestaurantItem>
+          </RestaurantContainer>
+          <ContentQueue>
+            <BookingInformation />
+            <QueueList />
+          </ContentQueue>
+          <DashBar />
+        </Container>
+      </PanGestureHandler>
+    </MainContainer>
   );
 };
 

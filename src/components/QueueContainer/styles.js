@@ -4,7 +4,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import {Dimensions, Animated} from 'react-native';
 import Colors from '~/constants/Colors';
 
-var {height} = Dimensions.get('window');
+var {height, width} = Dimensions.get('window');
 
 export const Container = styled(Animated.View)`
   flex-direction: column;
@@ -13,6 +13,7 @@ export const Container = styled(Animated.View)`
   height: ${(height * 88) / 100};
   border-bottom-right-radius: 45px;
   border-bottom-left-radius: 45px;
+  z-index: 5;
 `;
 
 export const Top = styled.View`
@@ -87,4 +88,11 @@ export const DashBar = styled.View`
 export const ContentQueue = styled.View`
   flex-direction: row;
   justify-content: space-between;
+`;
+
+export const MainContainer = styled.View`
+  position: absolute;
+  height: ${height}px;
+  width: ${width}px;
+  z-index: 2;
 `;

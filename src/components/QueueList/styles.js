@@ -58,7 +58,7 @@ export const QueueItemSelected = styled(Animated.View)`
   justify-content: space-between;
   height: 50px;
   width: 90px;
-  z-index: 1;
+  z-index: 2;
 `;
 export const QueueNumberContainerSelected = styled.View`
   width: 20px;
