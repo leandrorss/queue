@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useCallback} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Animated} from 'react-native';
 
 import {
@@ -17,46 +17,65 @@ import {
 } from './styles';
 
 import {PERSON_QUEUE} from '~/data/dummy-data';
+import PersonQueue from '~/models/person-queue';
 
 const QueueList = () => {
   const offset = 67;
   let positionValue = offset;
   let positions = 0;
 
-  const [personQueue, setPersonQueue] = useState(PERSON_QUEUE);
-  const [personSelected, setPersonSelected] = useState(
-    personQueue.find(p => p.selected),
-  );
+  const [personsQueue, setPersonsQueue] = useState(PERSON_QUEUE);
+
   const [initialPositionY, setInitialPositionY] = useState(0);
 
   const translateY = new Animated.Value(0);
 
-  const [actualPositionNumber, setActualPositionNumber] = useState(5);
+  const [actualPositionNumber, setActualPositionNumber] = useState();
+
+  var personIndex = personsQueue.findIndex(p => p.selected);
 
   useEffect(() => {
-    const initial = 17 + offset * (personSelected.position - 1);
+    const initial = 17 + offset * personIndex;
     setInitialPositionY(initial);
-  }, [personSelected.position]);
-
-  const checkQueue = useCallback(() => {
-    if (personSelected.position !== 1) {
-      Animated.timing(translateY, {
-        toValue: -positionValue,
-        duration: 350,
-        useNativeDriver: true,
-      }).start(() => {
-        positionValue += offset;
-        personSelected.position--;
-        setActualPositionNumber(personSelected);
-      });
-    }
+    setActualPositionNumber(personsQueue[personIndex].position);
   }, []);
 
   useEffect(() => {
     setTimeout(() => {
       checkQueue();
     }, 2000);
-  }, [checkQueue]);
+  }, [personsQueue, actualPositionNumber]);
+
+
+  const checkQueue = () => {
+    if (personsQueue[personIndex].position > 1) {
+      Animated.timing(translateY, {
+        toValue: -positionValue,
+        duration: 350,
+        useNativeDriver: true,
+      }).start(() => {
+        positionValue += offset;
+
+        const positionSelected = personsQueue[personIndex].position - 1;
+
+        const updatedPerson = new PersonQueue(
+          personsQueue[personIndex].id,
+          positionSelected,
+          personsQueue[personIndex].selected,
+        );
+
+        const updatedPersonsQueue = [...personsQueue];
+        updatedPersonsQueue[personIndex] = updatedPerson;
+
+        setPersonsQueue(updatedPersonsQueue);
+        setActualPositionNumber(positionSelected);
+
+        const initial = 17 + offset * positionSelected;
+        setInitialPositionY(initial);
+
+      });
+    }
+  };
 
   return (
     <Container>
@@ -78,11 +97,10 @@ const QueueList = () => {
       </QueueItemSelected>
 
       <List
-        data={personQueue}
+        data={personsQueue}
         keyExtractor={item => String(item.id)}
         scrollEnabled={false}
         renderItem={({item}) => {
-
           positions++;
 
           return (
