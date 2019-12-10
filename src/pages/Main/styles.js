@@ -9,17 +9,6 @@ export const Container = styled.View`
   flex: 1;
 `;
 
-export const BackgroundContainer = styled.View`
-  position: absolute;
-  bottom: 0;
-  width: ${width};
-  justify-content: flex-end;
-  border-width: 1px;
-  border-color: black;
-  flex-direction: column;
-  z-index: 1;
-`;
-
 export const ButtonContainer = styled.View`
   position: absolute;
   bottom: 0;
