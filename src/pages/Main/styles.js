@@ -11,7 +11,7 @@ export const Container = styled.View`
 
 export const ButtonContainer = styled.View`
   position: absolute;
-  bottom: 0;
+  bottom: ${height > 700 ? 10 : 0};
   flex-direction: row;
   padding: 10px 25px 10px 25px;
   justify-content: space-between;
