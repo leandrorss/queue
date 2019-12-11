@@ -17,62 +17,37 @@ import {
 } from './styles';
 
 import {PERSON_QUEUE} from '~/data/dummy-data';
-import PersonQueue from '~/models/person-queue';
 
 const QueueList = () => {
   const offset = 67;
-  let positionValue = offset;
   let positions = 0;
-
-  const [personsQueue, setPersonsQueue] = useState(PERSON_QUEUE);
-
-  const [initialPositionY, setInitialPositionY] = useState(0);
 
   const translateY = new Animated.Value(0);
 
-  const [actualPositionNumber, setActualPositionNumber] = useState();
+  const [actualPosition, setActualPosition] = useState(PERSON_QUEUE.find(p => p.selected).position);
+  const [positionValue] = useState(offset);
 
-  var personIndex = personsQueue.findIndex(p => p.selected);
-
-  useEffect(() => {
-    const initial = 17 + offset * personIndex;
-    setInitialPositionY(initial);
-    setActualPositionNumber(personsQueue[personIndex].position);
-  }, []);
+  const [positionSelectedHighlight, setPositionSelectedHighlight] = useState(17 + 67 * (PERSON_QUEUE.find(p => p.selected).position - 1));
 
   useEffect(() => {
     setTimeout(() => {
       checkQueue();
-    }, 2000);
-  }, [personsQueue, actualPositionNumber]);
-
+    // }, Math.floor(Math.random() * 10) * 1000);
+    }, 1000);
+  }, [actualPosition]);
 
   const checkQueue = () => {
-    if (personsQueue[personIndex].position > 1) {
+    if (PERSON_QUEUE.find(p => p.selected).position > 1) {
       Animated.timing(translateY, {
         toValue: -positionValue,
         duration: 350,
         useNativeDriver: true,
       }).start(() => {
-        positionValue += offset;
-
-        const positionSelected = personsQueue[personIndex].position - 1;
-
-        const updatedPerson = new PersonQueue(
-          personsQueue[personIndex].id,
-          positionSelected,
-          personsQueue[personIndex].selected,
-        );
-
-        const updatedPersonsQueue = [...personsQueue];
-        updatedPersonsQueue[personIndex] = updatedPerson;
-
-        setPersonsQueue(updatedPersonsQueue);
-        setActualPositionNumber(positionSelected);
-
-        const initial = 17 + offset * positionSelected;
-        setInitialPositionY(initial);
-
+        PERSON_QUEUE.find(p => p.selected).position =
+          PERSON_QUEUE.find(p => p.selected).position - 1;
+        const initial = 17 + 67 * (PERSON_QUEUE.find(p => p.selected).position - 1);
+        setPositionSelectedHighlight(initial);
+        setActualPosition(PERSON_QUEUE.find(p => p.selected).position);
       });
     }
   };
@@ -80,7 +55,7 @@ const QueueList = () => {
   return (
     <Container>
       <QueueItemSelected
-        selectedItem={initialPositionY}
+        selectedItem={positionSelectedHighlight}
         style={{
           transform: [
             {
@@ -89,15 +64,14 @@ const QueueList = () => {
           ],
         }}>
         <QueueNumberContainerSelected>
-          <QueueNumberSelected>{actualPositionNumber}</QueueNumberSelected>
+          <QueueNumberSelected>{actualPosition}</QueueNumberSelected>
         </QueueNumberContainerSelected>
         <QueueIconContainerSelected>
           <QueueIconSelected />
         </QueueIconContainerSelected>
       </QueueItemSelected>
-
       <List
-        data={personsQueue}
+        data={PERSON_QUEUE}
         keyExtractor={item => String(item.id)}
         scrollEnabled={false}
         renderItem={({item}) => {
