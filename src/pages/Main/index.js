@@ -13,6 +13,7 @@ import {
   Timer,
 } from './styles';
 import QueueContainer from '~/components/QueueContainer';
+import Colors from '~/constants/Colors';
 
 const Main = () => {
   return (
@@ -24,11 +25,11 @@ const Main = () => {
       </TimerContainer>
       <ButtonContainer>
         <CancelWaitButton onPress={() => {}}>
-          <Icon name="exit-to-app" size={28} color="#F45249" />
+          <Icon name="exit-to-app" size={28} color={Colors.primary} />
           <CancelWaitButtonText>Cancel Wait</CancelWaitButtonText>
         </CancelWaitButton>
         <CallButton onPress={() => {}}>
-          <Icon name="call" size={28} color="#F45249" />
+          <Icon name="call" size={28} color={Colors.primary} />
         </CallButton>
       </ButtonContainer>
     </Container>
