@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import {Animated} from 'react-native';
 
+import redArrow from '../../../assets/images/red-arrow.png';
+
 import {
   Container,
   QueueItem,
@@ -14,6 +16,8 @@ import {
   QueueNumberSelected,
   QueueIconSelected,
   List,
+  ArrowIndicator,
+  ContentArrowIndicatorContainer,
 } from './styles';
 
 import {PERSON_QUEUE} from '~/data/dummy-data';
@@ -67,7 +71,11 @@ const QueueList = () => {
           ],
         }}>
         <QueueNumberContainerSelected>
-          <QueueNumberSelected>{actualPosition}</QueueNumberSelected>
+          <ArrowIndicator source={redArrow}>
+            <ContentArrowIndicatorContainer>
+              <QueueNumberSelected>{actualPosition}</QueueNumberSelected>
+            </ContentArrowIndicatorContainer>
+          </ArrowIndicator>
         </QueueNumberContainerSelected>
         <QueueIconContainerSelected>
           <QueueIconSelected />

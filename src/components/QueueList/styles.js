@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Colors from '~/constants/Colors';
-import {Animated} from 'react-native';
+import {Animated, ImageBackground} from 'react-native';
 
 export const Container = styled.View`
   align-items: flex-end;
@@ -61,13 +61,10 @@ export const QueueItemSelected = styled(Animated.View)`
   z-index: 2;
 `;
 export const QueueNumberContainerSelected = styled.View`
-  width: 20px;
-  height: 20px;
-  align-items: center;
+  flex: 1;
+  height: 55px;
+  width: 50px;
   justify-content: center;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-  background-color: ${Colors.primary};
 `;
 export const QueueNumberSelected = styled.Text`
   color: ${Colors.white};
@@ -91,3 +88,14 @@ export const QueueIconSelected = styled(Icon).attrs({
 export const List = styled.FlatList.attrs({
   showVerticalScrollIndicator: false,
 })``;
+
+export const ArrowIndicator = styled(ImageBackground)`
+  width: 30px;
+  height: 20px;
+  justify-content: center;
+`;
+
+export const ContentArrowIndicatorContainer = styled.View`
+  flex: 1;
+  padding-left: 5px;
+`;
