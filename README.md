@@ -13,6 +13,7 @@ Abaixo segue as principais dependencias usadas na criação deste projeto:
 - [React Native Gesture Handler](https://github.com/software-mansion/react-native-gesture-handler)
 - [React Native Vector Icons](https://github.com/oblador/react-native-vector-icons)
 - [React Native Circular Progress](https://github.com/bartgryszko/react-native-circular-progress)
+
 Usei o ESLint como ferramenta de lint para JavaScript e JSX (https://eslint.org/) e o template da Rocketseat (https://github.com/Rocketseat)
 
 ## Projeto
