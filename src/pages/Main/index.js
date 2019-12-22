@@ -11,30 +11,20 @@ import {
   IconTimer,
   WaitTimeText,
   Timer,
+  CircularProgress,
 } from './styles';
 import QueueContainer from '~/components/QueueContainer';
 import Colors from '~/constants/Colors';
-
-import {AnimatedCircularProgress} from 'react-native-circular-progress';
 
 const Main = () => {
   return (
     <Container>
       <QueueContainer />
       <TimerContainer>
-        <AnimatedCircularProgress
-          style={{position: 'absolute', bottom: 40}}
-          size={200}
-          width={12}
-          fill={60}
-          tintColor={Colors.secondary}
-          onAnimationComplete={() => console.log('onAnimationComplete')}
-          backgroundColor={Colors.grayTransparent}
-          lineCap="round"
-          arcSweepAngle={240}
-          rotation={240}>
+        <CircularProgress
+          onAnimationComplete={() => console.log('onAnimationComplete')}>
           {fill => <Timer>{'00:25'}</Timer>}
-        </AnimatedCircularProgress>
+        </CircularProgress>
         <IconTimer />
         <WaitTimeText>Wait Time</WaitTimeText>
       </TimerContainer>

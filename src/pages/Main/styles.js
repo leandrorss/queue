@@ -3,6 +3,8 @@ import Colors from '~/constants/Colors';
 import {Dimensions} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
+import {AnimatedCircularProgress} from 'react-native-circular-progress';
+
 var {height, width} = Dimensions.get('window');
 
 export const Container = styled.View`
@@ -75,4 +77,18 @@ export const Timer = styled.Text`
   font-size: 50px;
   font-family: 'Ubuntu';
   letter-spacing: 1px;
+`;
+
+export const CircularProgress = styled(AnimatedCircularProgress).attrs({
+  size: 200,
+  width: 12,
+  fill: 60,
+  tintColor: Colors.secondary,
+  backgroundColor: Colors.grayTransparent,
+  lineCap: 'round',
+  arcSweepAngle: 240,
+  rotation: 240,
+})`
+  position: absolute;
+  bottom: 40;
 `;
