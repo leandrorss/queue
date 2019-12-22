@@ -54,18 +54,25 @@ export const TimerContainer = styled.View`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 `;
 
 export const IconTimer = styled(Icon).attrs({
   name: 'timer',
-  size: 30,
+  size: 40,
   color: Colors.secondary,
 })``;
 
+export const WaitTimeText = styled.Text`
+  color: ${Colors.secondary};
+  font-size: 30px;
+  font-family: 'Ubuntu';
+  letter-spacing: 1px;
+`;
+
 export const Timer = styled.Text`
   color: ${Colors.secondary};
-  font-size: 20px;
+  font-size: 50px;
   font-family: 'Ubuntu';
   letter-spacing: 1px;
 `;

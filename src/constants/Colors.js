@@ -6,4 +6,5 @@ export default {
   white: '#fff',
   whiteTransparent03: 'rgba(255, 255, 255, 0.3)',
   whiteTransparent0100: 'rgba(255, 255, 255, 0.100)',
+  grayTransparent: "rgba(223, 226, 236, 1.0)",
 };
