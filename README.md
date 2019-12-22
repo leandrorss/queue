@@ -1,8 +1,10 @@
+*Read this in other languages: [Portuguese](README.md), [English](README.en.md).*
+
 # Sobre o projeto
 
-O objetivo foi replicar em React Native a mesma interface criada no Adobe Photoshop pela designer Andrea Hock (https://dribbble.com/shots/8217150--Restaurant-Waitlist-Mobile-App). Achei a interface muito linda e tomei como um desafio deuxar o mais parecido possível.
+O objetivo foi replicar em React Native a mesma interface criada no Adobe Photoshop pela designer Andrea Hock (https://dribbble.com/shots/8217150--Restaurant-Waitlist-Mobile-App). Achei a interface muito linda e tomei como um desafio deixar o mais parecido possível.
 
-Os icones e as fontes usadas não são as mesmas porque não tenho as licenças para utilizar, mas tentei deixar o mais fiel possível com as gratuitas disponiveis online.
+Os icones e as fontes usadas não são as mesmas porque não eu tenho as licenças para utilizar, mas tentei deixar o mais fiel possível com as gratuitas disponiveis online.
 
 ## Feito com
 
@@ -18,7 +20,7 @@ Usei o ESLint como ferramenta de lint para JavaScript e JSX (https://eslint.org/
 
 ## Projeto
 
-O conceito é um app de lista de espera para restaurantes. A ideia é que o cliente consiga acompanhar quando a mesa deve estar disponível.
+O conceito é um app de lista de espera para restaurantes. A ideia é que o cliente consiga acompanhar quando a mesa está disponível.
 
 Para simular a fila andando, eu coloquei um setTimeout que executa a rotina de checar a fila da lista de espera num determinado tempo aleatorio entre 1 e 10 segundos, assim será possível visualizar a animação.
 
@@ -30,14 +32,14 @@ Para simular a fila andando, eu coloquei um setTimeout que executa a rotina de c
 git clone https://github.com/leandrorss/queue.git
 ```
 
-2.  Install the dependencies:
+2.  Instale as dependencias:
 
 ```
 cd queue
 yarn install
 ```
 
-3.  Run the app:
+3.  Rode o app:
 
 ```
 npm run ios
