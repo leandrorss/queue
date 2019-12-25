@@ -21,7 +21,7 @@ import {
 
 import BookingInformation from '~/components/BookingInformation';
 
-const QueueContainer = () => {
+const QueueContainer = props => {
   let offset = 0;
   const translateY = new Animated.Value(0);
   const animatedEvent = Animated.event(
@@ -95,7 +95,7 @@ const QueueContainer = () => {
           </RestaurantContainer>
           <ContentQueue>
             <BookingInformation />
-            <QueueList />
+            <QueueList onWaitTimeFinished={props.onWaitTimeFinished} />
           </ContentQueue>
           <DashBar />
         </Container>

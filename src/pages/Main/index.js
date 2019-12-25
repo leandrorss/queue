@@ -33,6 +33,10 @@ import Colors from '~/constants/Colors';
 const Main = () => {
   const [modalVisible, setModalVisible] = useState(false);
 
+  const waitTimeFinished = () => {
+    setModalVisible(true);
+  };
+
   return (
     <Container>
       <TableIsReadyModal visible={modalVisible}>
@@ -62,7 +66,7 @@ const Main = () => {
           </InnerContainer>
         </ModalContainer>
       </TableIsReadyModal>
-      <QueueContainer />
+      <QueueContainer onWaitTimeFinished={waitTimeFinished} />
       <TimerContainer>
         <CircularProgress
           onAnimationComplete={() => console.log('onAnimationComplete')}>
@@ -76,10 +80,7 @@ const Main = () => {
           <Icon name="exit-to-app" size={28} color={Colors.primary} />
           <CancelWaitButtonText>Cancel Wait</CancelWaitButtonText>
         </CancelWaitButton>
-        <CallButton
-          onPress={() => {
-            setModalVisible(true);
-          }}>
+        <CallButton onPress={() => {}}>
           <Icon name="call" size={28} color={Colors.primary} />
         </CallButton>
       </ButtonContainer>

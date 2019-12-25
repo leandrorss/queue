@@ -22,7 +22,7 @@ import {
 
 import {PERSON_QUEUE} from '~/data/dummy-data';
 
-const QueueList = () => {
+const QueueList = props => {
   let positions = 0;
   const offset = 67;
   const margin = 17;
@@ -55,16 +55,13 @@ const QueueList = () => {
         const initial = margin + offset * (personQueue.position - 1);
         setPositionSelectedHighlight(initial);
         setActualPosition(personQueue.position);
+
+        if (personQueue.position === 1) {
+          props.onWaitTimeFinished();
+        }
       });
-    } else {
-      WaitTimeFinished();
     }
   };
-
-  const WaitTimeFinished = () => {
-
-
-  }
 
   return (
     <Container>
