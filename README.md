@@ -24,6 +24,8 @@ O conceito é um app de lista de espera para restaurantes. A ideia é que o clie
 
 Para simular a fila andando, eu coloquei um setTimeout que executa a rotina de checar a fila da lista de espera num determinado tempo aleatorio entre 1 e 10 segundos, assim será possível visualizar a animação.
 
+![](gif-example.gif)
+
 ## Para rodar na sua máquina
 
 1.  Clone o repositorio:
