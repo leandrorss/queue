@@ -2,7 +2,7 @@
 
 # About the project
 
-The goal was to copy the interface made in Adobe Photoshop by the designer Andrea Hock in a real app made in React Native. (https://dribbble.com/shots/8217150--Restaurant-Waitlist-Mobile-App). I found the interface so elegant that I challenged myself to make one as similar as possible in a real app made in RN.
+The goal was to copy the interface made in Adobe XD by the designer Andrea Hock in a real app made in React Native. (https://dribbble.com/shots/8217150--Restaurant-Waitlist-Mobile-App). I found the interface so elegant that I challenged myself to make one as similar as possible in a real app made in RN.
 
 The icons and fonts used are not the same because I do not have the licenses to use, but I tried to keep as true as possible with the free ones available online.
 
