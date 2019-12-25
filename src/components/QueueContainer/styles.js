@@ -10,9 +10,9 @@ export const Container = styled(Animated.View)`
   flex-direction: column;
   background: ${Colors.secondary};
   padding: ${getStatusBarHeight()}px 30px 0px 30px;
-  height: ${(height * 88) / 100};
-  border-bottom-right-radius: 45px;
-  border-bottom-left-radius: 45px;
+  height: ${props => (height * (props.modalIsVisible ? 100 : 88)) / 100};
+  border-bottom-right-radius: ${props => (props.modalIsVisible ? 0 : 45)};
+  border-bottom-left-radius: ${props => (props.modalIsVisible ? 0 : 45)};
   z-index: 5;
 `;
 

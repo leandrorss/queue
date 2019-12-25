@@ -7,4 +7,6 @@ export const PERSON_QUEUE = [
   new PersonQueue(4, 4, false),
   new PersonQueue(5, 5, true),
   new PersonQueue(6, 6, false),
+  new PersonQueue(7, 7, false),
+  new PersonQueue(8, 8, false),
 ];

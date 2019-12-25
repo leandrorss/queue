@@ -67,6 +67,7 @@ const QueueContainer = props => {
         onGestureEvent={animatedEvent}
         onHandlerStateChange={onHandlerStateChanged}>
         <Container
+          modalIsVisible={props.modalIsVisible}
           // eslint-disable-next-line react-native/no-inline-styles
           style={{
             overflow: 'hidden',
@@ -97,7 +98,7 @@ const QueueContainer = props => {
             <BookingInformation />
             <QueueList onWaitTimeFinished={props.onWaitTimeFinished} />
           </ContentQueue>
-          <DashBar />
+          {!props.modalIsVisible && <DashBar />}
         </Container>
       </PanGestureHandler>
     </MainContainer>

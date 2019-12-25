@@ -66,7 +66,10 @@ const Main = () => {
           </InnerContainer>
         </ModalContainer>
       </TableIsReadyModal>
-      <QueueContainer onWaitTimeFinished={waitTimeFinished} />
+      <QueueContainer
+        modalIsVisible={modalVisible}
+        onWaitTimeFinished={waitTimeFinished}
+      />
       <TimerContainer>
         <CircularProgress
           onAnimationComplete={() => console.log('onAnimationComplete')}>
@@ -75,15 +78,18 @@ const Main = () => {
         <IconTimer />
         <WaitTimeText>Wait Time</WaitTimeText>
       </TimerContainer>
-      <ButtonContainer>
-        <CancelWaitButton onPress={() => {}}>
-          <Icon name="exit-to-app" size={28} color={Colors.primary} />
-          <CancelWaitButtonText>Cancel Wait</CancelWaitButtonText>
-        </CancelWaitButton>
-        <CallButton onPress={() => {}}>
-          <Icon name="call" size={28} color={Colors.primary} />
-        </CallButton>
-      </ButtonContainer>
+
+      {!modalVisible && (
+        <ButtonContainer>
+          <CancelWaitButton onPress={() => {}}>
+            <Icon name="exit-to-app" size={28} color={Colors.primary} />
+            <CancelWaitButtonText>Cancel Wait</CancelWaitButtonText>
+          </CancelWaitButton>
+          <CallButton onPress={() => {}}>
+            <Icon name="call" size={28} color={Colors.primary} />
+          </CallButton>
+        </ButtonContainer>
+      )}
     </Container>
   );
 };
