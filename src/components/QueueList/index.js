@@ -56,8 +56,15 @@ const QueueList = () => {
         setPositionSelectedHighlight(initial);
         setActualPosition(personQueue.position);
       });
+    } else {
+      WaitTimeFinished();
     }
   };
+
+  const WaitTimeFinished = () => {
+
+
+  }
 
   return (
     <Container>

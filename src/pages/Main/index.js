@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import {
@@ -12,13 +12,56 @@ import {
   WaitTimeText,
   Timer,
   CircularProgress,
+  TableIsReadyModal,
+  ModalContainer,
+  InnerContainer,
+  CloseModalButton,
+  IconCloseModal,
+  IconSmileModal,
+  TopModalContainer,
+  SmileModalContainer,
+  CloseModalContainer,
+  MiddleModalContainer,
+  TextTableIsReady,
+  BottomModalContainer,
+  CheckinButtonText,
+  CheckinButton,
 } from './styles';
 import QueueContainer from '~/components/QueueContainer';
 import Colors from '~/constants/Colors';
 
 const Main = () => {
+  const [modalVisible, setModalVisible] = useState(false);
+
   return (
     <Container>
+      <TableIsReadyModal visible={modalVisible}>
+        <ModalContainer>
+          <InnerContainer>
+            <TopModalContainer>
+              <SmileModalContainer>
+                <IconSmileModal />
+              </SmileModalContainer>
+              <CloseModalContainer>
+                <CloseModalButton
+                  onPress={() => {
+                    setModalVisible(false);
+                  }}>
+                  <IconCloseModal />
+                </CloseModalButton>
+              </CloseModalContainer>
+            </TopModalContainer>
+            <MiddleModalContainer>
+              <TextTableIsReady>Your table is now ready!</TextTableIsReady>
+            </MiddleModalContainer>
+            <BottomModalContainer>
+              <CheckinButton>
+                <CheckinButtonText>Check In</CheckinButtonText>
+              </CheckinButton>
+            </BottomModalContainer>
+          </InnerContainer>
+        </ModalContainer>
+      </TableIsReadyModal>
       <QueueContainer />
       <TimerContainer>
         <CircularProgress
@@ -33,7 +76,10 @@ const Main = () => {
           <Icon name="exit-to-app" size={28} color={Colors.primary} />
           <CancelWaitButtonText>Cancel Wait</CancelWaitButtonText>
         </CancelWaitButton>
-        <CallButton onPress={() => {}}>
+        <CallButton
+          onPress={() => {
+            setModalVisible(true);
+          }}>
           <Icon name="call" size={28} color={Colors.primary} />
         </CallButton>
       </ButtonContainer>
