@@ -24,6 +24,8 @@ The concept is a waiting list app for restaurants. The idea is that the customer
 
 To simulate the queue, I put a setTimeout that executes the checklist queue routine at a random time of between 1 and 10 seconds, so you can see the animation.
 
+![](gif-example.gif)
+
 ## How to use
 
 1.  Clone the repo:
