@@ -2,7 +2,7 @@
 
 # Sobre o projeto
 
-O objetivo foi replicar em React Native a mesma interface criada no Adobe Photoshop pela designer Andrea Hock (https://dribbble.com/shots/8217150--Restaurant-Waitlist-Mobile-App). Achei a interface muito linda e tomei como um desafio deixar o mais parecido possível.
+O objetivo foi replicar em React Native a mesma interface criada no Adobe XD pela designer Andrea Hock (https://dribbble.com/shots/8217150--Restaurant-Waitlist-Mobile-App). Achei a interface muito linda e tomei como um desafio deixar o mais parecido possível.
 
 Os icones e as fontes usadas não são as mesmas porque não eu tenho as licenças para utilizar, mas tentei deixar o mais fiel possível com as gratuitas disponiveis online.
 
