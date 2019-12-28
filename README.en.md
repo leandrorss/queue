@@ -2,7 +2,7 @@
 
 # About the project
 
-The goal was to copy the interface made in Adobe Photoshop by the designer Andrea Hock in a real app made in React Native. (https://dribbble.com/shots/8217150--Restaurant-Waitlist-Mobile-App). I found the interface so elegant that I challenged myself to make one as similar as possible in a real app made in RN.
+The goal was to copy the interface made in Adobe XD by the designer Andrea Hock in a real app made in React Native. (https://dribbble.com/shots/8217150--Restaurant-Waitlist-Mobile-App). I found the interface so elegant that I challenged myself to make one as similar as possible in a real app made in RN.
 
 The icons and fonts used are not the same because I do not have the licenses to use, but I tried to keep as true as possible with the free ones available online.
 
@@ -23,6 +23,8 @@ I used ESLint as the lint tool for JavaScript and JSX (https://eslint.org/) and 
 The concept is a waiting list app for restaurants. The idea is that the customer can follow when the table is available.
 
 To simulate the queue, I put a setTimeout that executes the checklist queue routine at a random time of between 1 and 10 seconds, so you can see the animation.
+
+![](gif-example.gif)
 
 ## How to use
 
