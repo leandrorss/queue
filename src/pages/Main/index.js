@@ -12,22 +12,9 @@ import {
   WaitTimeText,
   Timer,
   CircularProgress,
-  TableIsReadyModal,
-  ModalContainer,
-  InnerContainer,
-  CloseModalButton,
-  IconCloseModal,
-  IconSmileModal,
-  TopModalContainer,
-  SmileModalContainer,
-  CloseModalContainer,
-  MiddleModalContainer,
-  TextTableIsReady,
-  BottomModalContainer,
-  CheckinButtonText,
-  CheckinButton,
 } from './styles';
 import QueueContainer from '~/components/QueueContainer';
+import Modal from '~/components/Modal';
 import Colors from '~/constants/Colors';
 
 const Main = () => {
@@ -39,33 +26,8 @@ const Main = () => {
 
   return (
     <Container>
-      <TableIsReadyModal visible={modalVisible}>
-        <ModalContainer>
-          <InnerContainer>
-            <TopModalContainer>
-              <SmileModalContainer>
-                <IconSmileModal />
-              </SmileModalContainer>
-              <CloseModalContainer>
-                <CloseModalButton
-                  onPress={() => {
-                    setModalVisible(false);
-                  }}>
-                  <IconCloseModal />
-                </CloseModalButton>
-              </CloseModalContainer>
-            </TopModalContainer>
-            <MiddleModalContainer>
-              <TextTableIsReady>Your table is now ready!</TextTableIsReady>
-            </MiddleModalContainer>
-            <BottomModalContainer>
-              <CheckinButton>
-                <CheckinButtonText>Check In</CheckinButtonText>
-              </CheckinButton>
-            </BottomModalContainer>
-          </InnerContainer>
-        </ModalContainer>
-      </TableIsReadyModal>
+      <Modal visible={modalVisible} OnSetModalVisible={setModalVisible} />
+
       <QueueContainer
         modalIsVisible={modalVisible}
         onWaitTimeFinished={waitTimeFinished}
